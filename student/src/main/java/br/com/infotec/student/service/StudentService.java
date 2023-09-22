@@ -27,7 +27,7 @@ public class StudentService {
                 .schoolId(request.schoolId())
                 .build();
 
-        log.info("Student {} save succefully" , student);
+        log.info("Student {} save successfully", student);
         repository.save(student);
         return new StudentResponse(student);
     }
