@@ -5,6 +5,7 @@ import br.com.infotec.student.api.dto.StudentResponse;
 import br.com.infotec.student.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,5 +38,10 @@ public class StudentController {
     @GetMapping
     public ResponseEntity<List<StudentResponse>> findAllStudents() {
         return ResponseEntity.ok(service.findAllStudents());
+    }
+
+    @GetMapping("/school/{school-id}")
+    public ResponseEntity<List<StudentResponse>> findAllStudents(@PathVariable("school-id") Integer schoolId) {
+        return ResponseEntity.ok(service.findAllStudentsBySchool(schoolId));
     }
 }

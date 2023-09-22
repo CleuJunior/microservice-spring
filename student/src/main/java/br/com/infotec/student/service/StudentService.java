@@ -41,4 +41,7 @@ public class StudentService {
                 .toList();
     }
 
+    public List<StudentResponse> findAllStudentsBySchool(Integer schoolId) {
+        return repository.findAllBySchoolId(schoolId);
+    }
 }
